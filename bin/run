@@ -2,7 +2,28 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+require 'csv'
+require 'terminal-table'
 
+require_relative './author_class'
+require_relative './book_class'
+require_relative './magazine_class'
+
+authors_file = File.expand_path('../../data/authors.csv', __FILE__)
+books_file = File.expand_path('../../data/books.csv', __FILE__)
+magazines_file = File.expand_path('../../data/magazines.csv', __FILE__)
+
+authors_array =  CSV.read(authors_file)
+books_array =  CSV.read(books_file)
+magazines_array =  CSV.read(magazines_file)
+
+authors_array = authors_array.flatten
+books_array = books_array.flatten
+magazines_array = magazines_array.flatten
+
+authors_table = Terminal::Table.new :rows => authors_array
+
+p authors_table
 
 puts "hey there"
 
