@@ -2,6 +2,9 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
-require 'echocat'
 
-Echocat.run
+
+puts "hey there"
+
+
+
